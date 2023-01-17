@@ -1,32 +1,36 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useCallback } from 'react';
 
 import './styles.css'
 
 const AtlasPlayground = () => {
-	const [value, setValue] = useState('')
-	const atlasSearch = useRef(null)
+	const [value, setValue] = useState('');
 
-	const clear = () => setValue('')
+	const updateValue = useCallback((e) => {
+		setValue(e.target.value);
+	}, []);
 
-	useEffect(() => {
-		atlasSearch.current.value = value
-  }), [value];
+	const inputRef = useRef();
+	const clearValue = useCallback(() => {
+		inputRef.current.value = '';
+		setValue('');
+	}, [inputRef]);
 
-	const updateValue = ({ target }) => setValue(target.value)
-	
-  return (
-    <>
-      <h2>Atlas Search</h2>
-      <atlas-search ref={atlasSearch} onInput={updateValue}>
-        <atlas-icon slot="prefix" name="search" />
-        <atlas-button onClick={clear} slot="suffix" kind="icon">
-          <atlas-icon name="close" />
-        </atlas-button>
-      </atlas-search>
+	return (
+		<>
+			<h2>Atlas Search</h2>
+			<atlas-search ref={inputRef} defaultValue={value} onInput={updateValue}>
+				<atlas-icon slot="prefix" name="search" />
+				<atlas-button onClick={clearValue} slot="suffix" kind="icon">
+					<atlas-icon name="close" />
+				</atlas-button>
+			</atlas-search>
 			<p>Value from atlas-search: {value}</p>
-    </>
-  );
+		</>
+	);
 };
+
+export default AtlasPlayground;
+
 
 const App = () => (
   <>

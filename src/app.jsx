@@ -29,8 +29,6 @@ const AtlasPlayground = () => {
 	);
 };
 
-export default AtlasPlayground;
-
 
 const App = () => (
   <>

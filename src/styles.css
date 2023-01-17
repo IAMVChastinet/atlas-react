@@ -1,0 +1,10 @@
+#root {
+	margin: 50px auto;
+	width: 500px;
+}
+
+#realInput {
+	margin-block: 1em;
+	display: flex;
+	gap: 1em;
+}

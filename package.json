@@ -10,7 +10,7 @@
   "author": "victor",
   "license": "ISC",
   "dependencies": {
-    "@cision/atlas-components": "file:../atlas-components",
+    "@cision/atlas-components": "github:cision/atlas-components#v16",
     "debounce": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

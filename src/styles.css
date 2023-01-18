@@ -8,3 +8,7 @@
 	display: flex;
 	gap: 1em;
 }
+
+input[type=checkbox] {
+	margin: 1em .5em;
+}
